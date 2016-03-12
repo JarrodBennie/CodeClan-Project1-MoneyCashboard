@@ -5,4 +5,5 @@ require_relative "controllers/merchants"
 require_relative "controllers/tags"
 
 get "/" do
+  erb :home
 end

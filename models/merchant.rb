@@ -1,6 +1,6 @@
 require_relative "../db/sql_runner"
 
-class Tag
+class Merchant
   attr_reader :id, :name
 
   def initialize( params )
@@ -9,13 +9,13 @@ class Tag
   end
 
   def self.all
-    query = "SELECT * FROM Tags"
-    tags = SqlRunner.execute( query )
-    return tags.map { |t| Tag.new( t )}
+    query = "SELECT * FROM Merchants"
+    merchants = SqlRunner.execute( query )
+    return merchants.map { |m| Merchant.new( m )}
   end
 
   def self.create( params )
-    query = "INSERT INTO Tags (
+    query = "INSERT INTO Merchants (
       amount,
       date
     ) VALUES (
@@ -24,16 +24,16 @@ class Tag
     )"
 
     SqlRunner.execute( query )
-    return Tag.new( Tag.last_entry )
+    return Merchant.new( Merchant.last_entry )
   end
 
   def self.last_entry
-    query = "SELECT * FROM Tags ORDER BY id DESC limit 1;"
+    query = "SELECT * FROM Merchants ORDER BY id DESC limit 1;"
     return SqlRunner.execute( query )[ 0 ]
   end
 
   def self.delete_all 
-    query = "DELETE FROM Tags"
+    query = "DELETE FROM Merchants"
     SqlRunner.execute( query )
   end
 end

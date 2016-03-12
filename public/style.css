@@ -1,7 +1,17 @@
 header {
-
+  background-color: #aaa;
+  width: 100%;
+  height: 75px;
+  top: 0px;
+  position: fixed;
+  margin: auto;
 }
 
 footer {
-  
+  background-color: #aaa;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  position: fixed;
+  margin: auto;
 }
