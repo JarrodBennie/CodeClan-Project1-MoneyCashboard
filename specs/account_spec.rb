@@ -7,7 +7,7 @@ class TestAccount < MiniTest::Test
     merchant1 = Merchant.new( "name" => "Tesco" )
     @merchants = [ merchant1 ]
 
-    transaction1 = Transaction.new( "amount" => 100, "date" => "date" )
+    transaction1 = Transaction.new( "amount" => 100, "transaction_date" => "date" )
     @transactions = [ transaction1 ]
 
     tag1 = Tag.new( "name" => "Groceries" )
@@ -22,7 +22,7 @@ class TestAccount < MiniTest::Test
 
   def test_transaction_date
     expectation = "date"
-    result = @transactions[ 0 ].date
+    result = @transactions[ 0 ].transaction_date
     assert_equal( expectation, result )
   end
 

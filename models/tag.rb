@@ -4,7 +4,7 @@ class Tag
   attr_reader :id, :name
 
   def initialize( params )
-    @id = nil || params[ "id" ]
+    @id = nil || params[ "id" ].to_i
     @name = params[ "name" ]
   end
 
@@ -15,13 +15,7 @@ class Tag
   end
 
   def self.create( params )
-    query = "INSERT INTO Tags (
-      amount,
-      date
-    ) VALUES (
-      #{ params[ "amount" ]},
-      #{ params[ "date" ]}
-    )"
+    query = "INSERT INTO Tags ( name ) VALUES ( '#{ params[ 'name' ]}' )"
 
     SqlRunner.execute( query )
     return Tag.new( Tag.last_entry )

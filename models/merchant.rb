@@ -4,7 +4,7 @@ class Merchant
   attr_reader :id, :name
 
   def initialize( params )
-    @id = nil || params[ "id" ]
+    @id = nil || params[ "id" ].to_i
     @name = params[ "name" ]
   end
 
@@ -15,13 +15,7 @@ class Merchant
   end
 
   def self.create( params )
-    query = "INSERT INTO Merchants (
-      amount,
-      date
-    ) VALUES (
-      #{ params[ "amount" ]},
-      #{ params[ "date" ]}
-    )"
+    query = "INSERT INTO Merchants ( name ) VALUES ( '#{ params[ 'name' ]}' )"
 
     SqlRunner.execute( query )
     return Merchant.new( Merchant.last_entry )

@@ -1,0 +1,37 @@
+<div class="content">
+
+<h2>Transactions</h2>
+
+<p><b>Total:</b> <%= @account.total %></p>
+
+<hr>
+
+<% @account.transactions.each do |transaction| %>
+
+<p><b>Amount</b>: <%= transaction.amount %></p>
+<p><b>Date</b>: <%= transaction.transaction_date %></p>
+
+<p><b>Merchant</b>: 
+<% @account.merchants.each do |merchant| %>
+<% if merchant.id == transaction.merchant_id %>
+<%= merchant.name %>
+<% end %>
+<% end %></p>
+
+<p><b>Tag</b>: 
+<% @account.tags.each do |tag| %>
+<% if tag.id == transaction.merchant_id %>
+<%= tag.name %>
+<% end %>
+<% end %></p>
+
+<a href="/transaction/<%= transaction.id %>/edit">Edit</a>
+
+<hr>
+
+<% end %>
+
+<br><br>
+<a href="/">Back</a>
+
+</div>

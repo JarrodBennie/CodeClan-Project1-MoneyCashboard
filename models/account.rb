@@ -3,14 +3,17 @@ require_relative "merchant"
 require_relative "tag"
 
 class Account
-  attr_reader :id, :merchants, :transactions, :tags
+  attr_reader :transactions, :merchants, :tags
 
   def initialize( params )
-    @id = nil || params[ "id" ]
     @transactions = params[ "transactions" ]
     @merchants = params[ "merchants" ]
     @tags = params[ "tags" ]
   end
 
-
+  def total
+    result = 0
+    @transactions.each { |t| result += t.amount }
+    return result
+  end
 end

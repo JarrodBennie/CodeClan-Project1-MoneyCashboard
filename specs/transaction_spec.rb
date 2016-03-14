@@ -4,7 +4,7 @@ require_relative "../models/transaction"
 
 class TestTransaction < MiniTest::Test
   def setup
-    params = { "amount" => 100, "date" => "date" }
+    params = { "amount" => 100, "transaction_date" => "14-March-16" }
     @transaction1 = Transaction.new( params )
   end
 
@@ -15,8 +15,8 @@ class TestTransaction < MiniTest::Test
   end
 
   def test_date
-    expectation = "date"
-    result = @transaction1.date
+    expectation = "14-March-16"
+    result = @transaction1.transaction_date
     assert_equal( expectation, result )
   end
 end

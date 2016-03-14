@@ -1,16 +1,11 @@
-require_relative "../models/transactions"
 require_relative "../models/merchant"
 require_relative "../models/tag"
+require_relative "../models/transaction"
+# require "pry-byebug"
 
-Transaction.delete_all
 Merchant.delete_all
 Tag.delete_all
-
-transaction1 = Transaction.create( "amount" => 100, "date" => Date.new( 11, 03, 2016 ))
-transaction2 = Transaction.create( "amount" => 75, "date" => Date.new( 11, 03, 2016 ))
-transaction3 = Transaction.create( "amount" => 25, "date" => Date.new( 11, 03, 2016 ))
-transaction4 = Transaction.create( "amount" => 100, "date" => Date.new( 11, 03, 2016 ))
-transaction5 = Transaction.create( "amount" => 10, "date" => Date.new( 11, 03, 2016 ))
+Transaction.delete_all
 
 merchant1 = Merchant.create( "name" => "Tesco" )
 merchant2 = Merchant.create( "name" => "nPower" )
@@ -24,3 +19,40 @@ tag3 = Tag.create( "name" => "Travel" )
 tag4 = Tag.create( "name" => "Business" )
 tag5 = Tag.create( "name" => "Medical" )
 
+transaction1 = Transaction.create(
+  "amount" => 100,
+  "transaction_date" => "14-March-16",
+  "merchant_id" => merchant1.id,
+  "tag_id" => tag1.id
+)
+
+transaction2 = Transaction.create(
+  "amount" => 75,
+  "transaction_date" => "14-March-16",
+  "merchant_id" => merchant2.id,
+  "tag_id" => tag2.id
+)
+
+transaction3 = Transaction.create(
+  "amount" => 25,
+  "transaction_date" => "14-March-16",
+  "merchant_id" => merchant3.id,
+  "tag_id" => tag3.id
+)
+
+transaction4 = Transaction.create(
+  "amount" => 100,
+  "transaction_date" => "14-March-16",
+  "merchant_id" => merchant4.id,
+  "tag_id" => tag4.id
+)
+
+transaction5 = Transaction.create(
+  "amount" => 10,
+  "transaction_date" => "14-March-16",
+  "merchant_id" => merchant5.id,
+  "tag_id" => tag5.id
+)
+
+# binding.pry
+# nil

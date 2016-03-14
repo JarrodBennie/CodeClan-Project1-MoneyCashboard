@@ -15,3 +15,14 @@ footer {
   position: fixed;
   margin: auto;
 }
+
+body {
+  font-family: sans-serif;
+}
+
+.content {
+  width: 80%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
