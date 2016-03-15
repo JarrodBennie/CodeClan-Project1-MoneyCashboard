@@ -36,3 +36,8 @@ post "/merchant/:id" do
   @merchant.update
   redirect to "/merchant"
 end
+
+delete "/merchant/:id" do
+  Merchant.destroy( params[ :id ] )
+  redirect to "/merchant"
+end

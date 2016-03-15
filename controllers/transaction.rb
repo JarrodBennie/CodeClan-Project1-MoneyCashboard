@@ -1,6 +1,7 @@
 require "sinatra"
 require "sinatra/contrib/all"
 require_relative "../models/account"
+require( 'json' )
 
 get "/transaction" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
@@ -34,5 +35,10 @@ end
 post "/transaction/:id" do
   @transaction = Transaction.new( params )
   @transaction.update
+  redirect to "/transaction"
+end
+
+post "/transactions/:id/delete" do
+  Transaction.destroy( params[ :id ] )
   redirect to "/transaction"
 end

@@ -6,14 +6,25 @@ class Transaction
     @id = nil || params[ "id" ].to_i
     @merchant_id = nil || params[ "merchant_id" ].to_i
     @tag_id = nil || params[ "tag_id" ].to_i
-    @amount = params[ "amount" ].to_i
+    @amount = params[ "amount" ].to_f
     @transaction_date = params[ "transaction_date" ]
   end
 
+  def date_format
+    date = @transaction_date.to_s.split("-").map(&:strip)
+    return "#{ date[ 2 ] }/#{ date[ 1 ] }/#{ date[ 0 ] }"
+  end
+
   def self.find( id )
-   sql = "SELECT * FROM Transactions WHERE id = #{ id.to_i }"
-   result = SqlRunner.execute( sql )
+   query = "SELECT * FROM Transactions WHERE id = #{ id.to_i }"
+   result = SqlRunner.execute( query )
    return Transaction.new( result[ 0 ] )
+  end
+
+  def self.select_by_month( month )
+    query = "SELECT * FROM Transactions WHERE transaction_date "
+    result = SqlRunner.execute( query )
+    return transactions.map { |t| Transaction.new( t ) }
   end
 
   def self.all
@@ -43,6 +54,10 @@ class Transaction
   def self.last_entry
     query = "SELECT * FROM Transactions ORDER BY id DESC limit 1;"
     return SqlRunner.execute( query )[ 0 ]
+  end
+
+  def self.destroy( id )
+    SqlRunner.execute( "DELETE FROM Transactions WHERE id = #{ id }" )
   end
 
   def self.delete_all 

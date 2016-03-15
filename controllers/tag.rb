@@ -36,3 +36,8 @@ post "/tag/:id" do
   @tag.update
   redirect to "/tag"
 end
+
+delete "/tag/:id" do
+  Tag.destroy( params[ :id ] )
+  redirect to "/tag"
+end

@@ -2,7 +2,7 @@
 
 <h2><%= @tag.name %></h2>
 
-<p><b>Total</b>: £<%= @account.tag_total( @tag.id ) %></p>
+<p><b>Total</b>: £<%= sprintf "%.2f", @account.tag_total( @tag.id ) %></p>
 
 <hr>
 
@@ -10,7 +10,7 @@
 
 <% if transaction.tag_id == @tag.id %>
 
-<p><b>Amount</b>: £<%= transaction.amount %></p>
+<p><b>Amount</b>: £<%= sprintf "%.2f", transaction.amount %></p>
 <p><b>Date</b>: <%= transaction.transaction_date %></p>
 
 <p><b>Merchant</b>: 

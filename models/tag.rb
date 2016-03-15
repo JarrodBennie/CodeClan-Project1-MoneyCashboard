@@ -37,6 +37,10 @@ class Tag
     return SqlRunner.execute( query )[ 0 ]
   end
 
+  def self.destroy( id )
+    SqlRunner.execute( "DELETE FROM Tags WHERE id = #{ id }" )
+  end
+
   def self.delete_all 
     query = "DELETE FROM Tags"
     SqlRunner.execute( query )

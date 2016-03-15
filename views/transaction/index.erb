@@ -2,14 +2,16 @@
 
 <h2>Transactions</h2>
 
-<p><b>Total:</b> £<%= @account.total %></p>
+<%= @account.get_by_month(3) %>
+
+<p><b>Total:</b> £<%= sprintf "%.2f", @account.total %></p>
 
 <hr>
 
 <% @account.transactions.each do |transaction| %>
 
-<p><b>Amount</b>: £<%= transaction.amount %></p>
-<p><b>Date</b>: <%= transaction.transaction_date %></p>
+<p><b>Amount</b>: £<%= sprintf "%.2f", transaction.amount %></p>
+<p><b>Date</b>: <%= transaction.date_format %></p>
 
 <p><b>Merchant</b>: 
 <% @account.merchants.each do |merchant| %>
