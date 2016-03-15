@@ -12,7 +12,7 @@ class Transaction
   end
 
   def self.find( id )
-   sql = "SELECT * FROM Transactions WHERE id = #{id.to_i}"
+   sql = "SELECT * FROM Transactions WHERE id = #{ id.to_i }"
    result = SqlRunner.execute( sql )
    return Transaction.new( result[ 0 ] )
   end
