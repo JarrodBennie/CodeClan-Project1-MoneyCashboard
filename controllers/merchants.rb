@@ -2,42 +2,37 @@ require "sinatra"
 require "sinatra/contrib/all"
 require_relative "../models/account"
 
-get "/tag" do
+get "/merchants" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/tag/index"
+  erb :"/merchants/index"
 end
 
-get "/tag/new" do
-  erb :"/tag/new"
+get "/merchants/new" do
+  erb :"/merchants/new"
 end
 
-get "/tag/:id" do
-  @tag = Tag.find( params[ :id ])  
+get "/merchants/:id" do
+  @merchant = Merchant.find( params[ :id ])  
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/tag/show"
+  erb :"/merchants/show"
 end
 
-post "/tag" do
-  @tag = Tag.create( params )
-  redirect to "/tag"
+post "/merchanst" do
+  @merchant = Merchant.create( params )
+  redirect to "/merchants"
 end
 
-get "/tag/:id/edit" do
-  @tag = Tag.find( params[ :id ])
+get "/merchants/:id/edit" do
+  @merchant = Merchant.find( params[ :id ])
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/tag/edit"
+  erb :"/merchants/edit"
 end
 
-post "/tag/:id" do
-  @tag = Tag.new( params )
-  @tag.update
-  redirect to "/tag"
-end
-
-delete "/tag/:id" do
-  Tag.destroy( params[ :id ] )
-  redirect to "/tag"
+post "/merchants/:id" do
+  @merchant = Merchant.new( params )
+  @merchant.update
+  redirect to "/merchants"
 end

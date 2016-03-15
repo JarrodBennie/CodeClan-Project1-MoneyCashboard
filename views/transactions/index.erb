@@ -2,9 +2,8 @@
 
 <h2>Transactions</h2>
 
-<%= @account.get_by_month(3) %>
-
 <p><b>Total:</b> £<%= sprintf "%.2f", @account.total %></p>
+<a href="/transactions/new">Add New</a>
 
 <hr>
 
@@ -27,7 +26,7 @@
 <% end %>
 <% end %></p>
 
-<a href="/transaction/<%= transaction.id %>/edit">Edit</a>
+<a href="/transactions/<%= transaction.id %>/edit">Edit</a>
 
 <hr>
 

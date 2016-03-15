@@ -28,7 +28,7 @@ class Transaction
   end
 
   def self.all
-    query = "SELECT * FROM Transactions"
+    query = "SELECT * FROM Transactions ORDER BY transaction_date DESC"
     transactions = SqlRunner.execute( query )
     return transactions.map { |t| Transaction.new( t )}
   end

@@ -15,7 +15,7 @@ class Merchant
   end
 
   def self.all
-    query = "SELECT * FROM Merchants"
+    query = "SELECT * FROM Merchants ORDER BY name ASC"
     merchants = SqlRunner.execute( query )
     return merchants.map { |m| Merchant.new( m )}
   end

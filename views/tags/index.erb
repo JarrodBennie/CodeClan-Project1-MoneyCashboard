@@ -2,10 +2,11 @@
 
 <h2>Tags</h2>
 
+<a href="/tags/new">Add New</a>
+
 <% @account.tags.each do |tag| %>
 
-<p><b>Name</b>: <%= tag.name %></p>
-<p><a href="/tag/<%= tag.id %>/edit">Edit</a></p>
+<p><b>Name</b>: <%= tag.name %> <a href="/tags/<%= tag.id %>/edit">Edit</a></p>
 
 <hr>
 

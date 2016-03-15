@@ -11,10 +11,6 @@ get "/api/transactions" do
   @account.display_as_json.to_json
 end
 
-get "/api/transactions/:id" do 
-
-end 
-
 post "/api/transactions" do 
   content_type :json
   @transaction = Transaction.create( params )

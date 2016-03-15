@@ -2,10 +2,11 @@
 
 <h2>Merchants</h2>
 
+<a href="/merchants/new">Add New</a>
+
 <% @account.merchants.each do |merchant| %>
 
-<p><b>Name</b>: <%= merchant.name %></p>
-<p><a href="/merchant/<%= merchant.id %>/edit">Edit</a></p>
+<p><b>Name</b>: <%= merchant.name %> <a href="/merchants/<%= merchant.id %>/edit">Edit</a></p>
 
 <hr>
 

@@ -3,42 +3,42 @@ require "sinatra/contrib/all"
 require_relative "../models/account"
 require( 'json' )
 
-get "/transaction" do
+get "/transactions" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/transaction/index"
+  erb :"/transactions/index"
 end
 
-get "/transaction/:id" do
+get "/transactions/new" do
+  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  @account = Account.new( options )
+  erb :"/transactions/new"
+end
+
+get "/transactions/:id" do
   @transaction = Transaction.find( params[ :id ] )
-  erb :"/transaction/show"
+  erb :"/transactions/show"
 end
 
-get "/transaction/new" do
-  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
-  @account = Account.new( options )
-  erb :"/transaction/new"
-end
-
-post "/transaction" do
+post "/transactions" do
   @transaction = Transaction.create( params )
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
 
-get "/transaction/:id/edit" do
+get "/transactions/:id/edit" do
   @transaction = Transaction.find( params[ :id ])
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/transaction/edit"
+  erb :"/transactions/edit"
 end
 
-post "/transaction/:id" do
+post "/transactions/:id" do
   @transaction = Transaction.new( params )
   @transaction.update
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
 
 post "/transactions/:id/delete" do
   Transaction.destroy( params[ :id ] )
-  redirect to "/transaction"
+  redirect to "/transactions"
 end
