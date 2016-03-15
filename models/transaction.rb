@@ -1,5 +1,4 @@
 require_relative "../db/sql_runner"
-
 class Transaction
   attr_reader :id, :merchant_id, :tag_id, :amount, :transaction_date
 
@@ -34,6 +33,11 @@ class Transaction
 
     SqlRunner.execute( query )
     return Transaction.new( Transaction.last_entry )
+  end
+
+  def update
+    query = "UPDATE Transactions SET amount = #{ @amount }, transaction_date = '#{ @transaction_date }' WHERE id = #{ @id }"
+    return SqlRunner.execute( query )
   end
 
   def self.last_entry

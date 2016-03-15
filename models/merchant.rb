@@ -8,6 +8,12 @@ class Merchant
     @name = params[ "name" ]
   end
 
+  def self.find( id )
+   sql = "SELECT * FROM Merchants WHERE id = #{ id.to_i }"
+   result = SqlRunner.execute( sql )
+   return Merchant.new( result[ 0 ] )
+  end
+
   def self.all
     query = "SELECT * FROM Merchants"
     merchants = SqlRunner.execute( query )
@@ -19,6 +25,11 @@ class Merchant
 
     SqlRunner.execute( query )
     return Merchant.new( Merchant.last_entry )
+  end
+
+  def update
+    query = "UPDATE Merchants SET name = '#{ @name }' WHERE id = #{ @id }"
+    return SqlRunner.execute( query )
   end
 
   def self.last_entry

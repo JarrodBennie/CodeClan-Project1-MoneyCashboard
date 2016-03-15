@@ -1,0 +1,18 @@
+<div class="content">
+
+<h2>Merchants</h2>
+
+<% @account.merchants.each do |merchant| %>
+
+<p><b>Name</b>: <%= merchant.name %></p>
+<p><a href="/merchant/<%= merchant.id %>/edit">Edit</a></p>
+
+<hr>
+
+<% end %>
+
+
+<br><br>
+<a href="/">Back</a>
+
+</div>

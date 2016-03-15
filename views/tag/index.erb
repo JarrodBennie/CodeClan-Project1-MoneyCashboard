@@ -1,0 +1,18 @@
+<div class="content">
+
+<h2>Tags</h2>
+
+<% @account.tags.each do |tag| %>
+
+<p><b>Name</b>: <%= tag.name %></p>
+<p><a href="/tag/<%= tag.id %>/edit">Edit</a></p>
+
+<hr>
+
+<% end %>
+
+
+<br><br>
+<a href="/">Back</a>
+
+</div>
