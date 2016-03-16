@@ -1,28 +1,28 @@
 <div class="content-top">
   <h2><%= @tag.name %></h2>
-  <p><b>Total Expenditure</b>: £<%= @account.tag_total( @tag.id ) %></p>
+  <p><b>Total by Tag</b>: £<%= @account.tag_total( @tag.id ) %></p>
 </div>
 
 <div class="content-bottom-nopad">
-<% @account.transactions.each do |transaction| %>
+  <% @account.transactions.each do |transaction| %>
+    <% if transaction.tag_id == @tag.id %>
+      <p><b>Amount</b>: £<%= transaction.amount_format %></p>
+      <p><b>Date</b>: <%= transaction.date_format %></p>
 
-<% if transaction.tag_id == @tag.id %>
+      <p><b>Merchant</b>: 
+      <% @account.merchants.each do |merchant| %>
+      <% if merchant.id == transaction.merchant_id %>
+        <%= merchant.name %>
+      <% end %>
+    <% end %></p>
 
-<p><b>Amount</b>: £<%= sprintf "%.2f", transaction.amount_format %></p>
-<p><b>Date</b>: <%= transaction.date_format %></p>
+      <form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
+        <input type="submit" value="Delete">
+      </form>
+      
+      <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
 
-<p><b>Merchant</b>: 
-<% @account.merchants.each do |merchant| %>
-<% if merchant.id == transaction.merchant_id %>
-<%= merchant.name %>
-<% end %>
-<% end %></p>
-
-<form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
-  <input type="submit" value="Delete">
-</form>
-<a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
-
-<% end %>
-<% end %>
+      <div class="content-spacer"></div>
+    <% end %>
+  <% end %>
 </div>

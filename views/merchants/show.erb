@@ -1,26 +1,28 @@
 <div class="content-top">
   <h2><%= @merchant.name %></h2>
-  <p><b>Total Expenditure</b>: £<%= @account.merchant_total( @merchant.id ) %></p>
+  <p><b>Total by Merchant</b>: £<%= @account.merchant_total( @merchant.id ) %></p>
 </div>
 
 <div class="content-bottom-nopad">
   <% @account.transactions.each do |transaction| %>
-  <% if transaction.merchant_id == @merchant.id %>
-  <p><b>Amount</b>: £<%= transaction.amount_format %></p>
-  <p><b>Date</b>: <%= transaction.date_format %></p>
+    <% if transaction.merchant_id == @merchant.id %>
+      <p><b>Amount</b>: £<%= transaction.amount_format %></p>
+      <p><b>Date</b>: <%= transaction.date_format %></p>
 
-  <p><b>Tag</b>: 
-  <% @account.tags.each do |tag| %>
-  <% if tag.id == transaction.tag_id %>
-  <%= tag.name %>
-  <% end %><% end %></p>
+      <p><b>Tag</b>: 
+      <% @account.tags.each do |tag| %>
+      <% if tag.id == transaction.tag_id %>
+        <%= tag.name %>
+      <% end %>
+    <% end %></p>
 
-  <form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
-  <input type="submit" value="Delete">
-</form>
-  <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
+      <form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
+        <input type="submit" value="Delete">
+      </form>
+      
+      <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
 
-  <div class="content-spacer"></div>
-
-  <% end %><% end %>
+      <div class="content-spacer"></div>
+    <% end %>
+  <% end %>
 </div>
