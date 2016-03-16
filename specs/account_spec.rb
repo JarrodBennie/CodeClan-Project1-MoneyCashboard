@@ -4,14 +4,14 @@ require_relative "../models/account"
 
 class TestAccount < MiniTest::Test
   def setup
-    merchant1 = Merchant.new( "id" => 1,"name" => "Tesco" )
-    merchants = [ merchant1 ]
+    merchant = Merchant.new( "id" => 1,"name" => "Tesco" )
+    merchants = [ merchant ]
 
-    tag1 = Tag.new( "id" => 1, "name" => "Groceries" )
-    tags = [ tag1 ]
+    tag = Tag.new( "id" => 1, "name" => "Groceries" )
+    tags = [ tag ]
 
-    transaction1 = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 100, "transaction_date" => "2016-03-11" )
-    transactions = [ transaction1 ]
+    transaction = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 100, "transaction_date" => "2016-03-11" )
+    transactions = [ transaction ]
 
     params = { "transactions" => transactions, "merchants" => merchants, "tags" => tags }
     @account = Account.new( params )
