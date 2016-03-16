@@ -65,7 +65,7 @@ a:hover {
 
 .content {
   background-color: #eee;
-  width: 66%;
+  width: 50%;
   margin: auto;
   margin-top: 125px;
   margin-bottom: 75px;
@@ -78,7 +78,7 @@ a:hover {
 
 .content-top {
   background-color: #eee;
-  width: 66%;
+  width: 50%;
   margin: auto;
   margin-top: 125px;
   padding: 50px;
@@ -90,7 +90,7 @@ a:hover {
 
 .content-bottom {
   background-color: #eee;
-  width: 66%;
+  width: 50%;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 75px;
@@ -103,7 +103,7 @@ a:hover {
 
 .content-bottom-nopad {
   background-color: #eee;
-  width: 66%;
+  width: 50%;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 75px;

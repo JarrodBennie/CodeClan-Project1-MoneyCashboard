@@ -1,7 +1,6 @@
 require "sinatra"
 require "sinatra/contrib/all"
 require_relative "../models/account"
-require( 'json' )
 
 get "/transactions" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
