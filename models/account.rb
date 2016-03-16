@@ -1,7 +1,6 @@
 require_relative "transaction"
 require_relative "merchant"
 require_relative "tag"
-#require "date"
 
 class Account
   attr_reader :transactions, :merchants, :tags
@@ -30,11 +29,17 @@ class Account
     return sprintf "%.2f", result
   end
 
-  # def get_by_month( month )
-  #   @transactions.select do |t| 
-  #     Date.parse( t.transaction_date ) == month 
-  #   end
-  # end
+  def top_merchant
+    hash = {}
+    @merchants.each { |m| hash[ m.name ] = merchant_total( m.id )}
+    return hash.max_by{ |k,v| v }
+  end
+
+  def top_tag
+    hash = {}
+    @tags.each { |t|  hash[ t.name ] = tag_total( t.id )}
+    return hash.max_by{ |k,v| v }
+  end  
 
   def display_as_json
     result = {}

@@ -44,4 +44,12 @@ class TestAccount < MiniTest::Test
   def test_tag_total
     assert_equal(( sprintf "%0.2f", 100.00 ), @account.tag_total( 1 ))
   end
+
+  def test_top_merchant
+    assert_equal([ "Tesco", "100.00" ], @account.top_merchant )
+  end
+
+  def test_top_tag
+    assert_equal([ "Groceries", "100.00" ], @account.top_tag )
+  end
 end
