@@ -1,8 +1,7 @@
 require_relative "transaction"
 require_relative "merchant"
 require_relative "tag"
-require( 'date' )
-require( 'pry-byebug' )
+#require "date"
 
 class Account
   attr_reader :transactions, :merchants, :tags
@@ -19,15 +18,15 @@ class Account
     return sprintf "%.2f", result
   end
 
-  def tag_total( tag_id )
-    result = 0
-    @transactions.each { |t| if t.tag_id == tag_id then result += t.amount end }
-    return sprintf "%.2f", result
-  end
-
   def merchant_total( merchant_id )
     result = 0
     @transactions.each { |t| if t.merchant_id == merchant_id then result += t.amount end }
+    return sprintf "%.2f", result
+  end
+
+  def tag_total( tag_id )
+    result = 0
+    @transactions.each { |t| if t.tag_id == tag_id then result += t.amount end }
     return sprintf "%.2f", result
   end
 
