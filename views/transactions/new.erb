@@ -1,10 +1,9 @@
 <div class="content">
+  <h2>Create a New Transaction</h2>
 
-  <h2>New Transaction</h2>
-
-  <form action="/transaction" method="post">
+  <form action="/transactions" method="post">
     <label for="amount">Amount:</label>
-      <input type="text" name="amount" id="amount"><br><br>
+      <input type="number" name="amount" id="amount" step="any"><br><br>
 
     <label for="transaction_date">Date:</label>
       <input type="date" name="transaction_date" id="transaction_date"><br><br>
@@ -30,5 +29,4 @@
     <input type="submit" value="Submit">
     <a href="/transactions">Cancel</a>
   </form>
-
 </div>

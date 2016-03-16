@@ -2,10 +2,11 @@
 
 <h2>Edit Tag</h2>
 
-<form action="/tag/<%= @tag.id %>" method="post">
+<form action="/tags/<%= @tag.id %>" method="post">
   <label for="name">Name:</label>
     <input type="text" name="name" id="name" value="<%= @tag.name %>"><br><br>
   <input type="submit" value="Submit">
+  <a href="/tags">Cancel</a>
 </form>
 
 </div>

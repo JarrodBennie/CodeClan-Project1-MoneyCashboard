@@ -1,17 +1,15 @@
-<div class="content">
+<div class="content-top">
+  <h2><%= @tag.name %></h2>
+  <p><b>Total Expenditure</b>: £<%= @account.tag_total( @tag.id ) %></p>
+</div>
 
-<h2><%= @tag.name %></h2>
-
-<p><b>Total</b>: £<%= sprintf "%.2f", @account.tag_total( @tag.id ) %></p>
-
-<hr>
-
+<div class="content-bottom-nopad">
 <% @account.transactions.each do |transaction| %>
 
 <% if transaction.tag_id == @tag.id %>
 
-<p><b>Amount</b>: £<%= sprintf "%.2f", transaction.amount %></p>
-<p><b>Date</b>: <%= transaction.transaction_date %></p>
+<p><b>Amount</b>: £<%= sprintf "%.2f", transaction.amount_format %></p>
+<p><b>Date</b>: <%= transaction.date_format %></p>
 
 <p><b>Merchant</b>: 
 <% @account.merchants.each do |merchant| %>
@@ -20,15 +18,11 @@
 <% end %>
 <% end %></p>
 
-<a href="/transaction/<%= transaction.id %>/edit">Edit</a>
-
-<hr>
+<form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
+  <input type="submit" value="Delete">
+</form>
+<a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
 
 <% end %>
 <% end %>
-
-
-<br><br>
-<a href="/">Back</a>
-
 </div>

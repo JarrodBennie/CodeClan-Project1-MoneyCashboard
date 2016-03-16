@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,100);
+
 header {
   background-color: deepskyblue;
   width: 100%;
@@ -6,6 +8,7 @@ header {
   top: 0px;
   position: fixed;
   margin: auto;
+  opacity: 0.95;
 }
 
 footer {
@@ -20,6 +23,9 @@ footer {
   font-size: 0.75em;
   text-align: center;
   font-weight: 100;
+  opacity: 0.95;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
 }
 
 body {
@@ -30,18 +36,26 @@ body {
 
 h1 {
   margin: 0 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
 }
 
 h2 {
   margin-top: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 100;
 }
 
 a {
   background-color: deepskyblue;
-  color: #222;
+  color: #eee;
   border-radius: 20px;
   padding: 5px 10px;
   text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
 }
 
 .float-right {
@@ -51,10 +65,67 @@ a {
 
 .content {
   background-color: #eee;
-  width: 80%;
+  width: 66%;
   margin: auto;
   margin-top: 125px;
   margin-bottom: 75px;
   padding: 50px;
   border-radius: 50px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: deepskyblue;
+}
+
+.content-top {
+  background-color: #eee;
+  width: 66%;
+  margin: auto;
+  margin-top: 125px;
+  padding: 50px;
+  border-radius: 50px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: deepskyblue;
+}
+
+.content-bottom {
+  background-color: #eee;
+  width: 66%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 75px;
+  padding: 50px;
+  border-radius: 50px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: deepskyblue;
+}
+
+.content-bottom-nopad {
+  background-color: #eee;
+  width: 66%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 75px;
+  padding: 50px;
+  padding-bottom: 0;
+  border-radius: 50px;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: deepskyblue;
+}
+
+.content-spacer {
+  height: 50px;
+}
+
+.home-links {
+  text-align: center;
+}
+
+.delete {
+float: right;
+display: block;
+margin: auto;
+border-radius: 5px;
 }

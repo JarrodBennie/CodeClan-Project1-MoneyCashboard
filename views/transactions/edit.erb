@@ -2,9 +2,9 @@
 
 <h2>Edit Transaction</h2>
 
-<form action="/transaction/<%= @transaction.id %>" method="post">
+<form action="/transactions/<%= @transaction.id %>" method="post">
   <label for="amount">Amount:</label>
-    <input type="text" name="amount" id="amount" value="<%= @transaction.amount %>"><br><br>
+    <input type="text" name="amount" id="amount" value="<%= @transaction.amount_format %>"><br><br>
 
   <label for="transaction_date">Date:</label>
     <input type="date" name="transaction_date" id="transaction_date" value="<%= @transaction.transaction_date %>"><br><br>
@@ -34,6 +34,7 @@
   </select><br><br>
 
   <input type="submit" value="Submit">
+  <a href="/transactions">Cancel</a>
 </form>
 
 </div>

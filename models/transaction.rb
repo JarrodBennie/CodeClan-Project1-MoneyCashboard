@@ -11,8 +11,12 @@ class Transaction
   end
 
   def date_format
-    date = @transaction_date.to_s.split("-").map(&:strip)
+    date = @transaction_date.to_s.split("-")
     return "#{ date[ 2 ] }/#{ date[ 1 ] }/#{ date[ 0 ] }"
+  end
+
+  def amount_format
+      return sprintf "%.2f", @amount
   end
 
   def self.find( id )
