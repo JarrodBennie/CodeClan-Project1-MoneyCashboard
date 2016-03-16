@@ -30,15 +30,15 @@ class Account
   end
 
   def top_merchant
-    hash = {}
-    @merchants.each { |m| hash[ m.name ] = merchant_total( m.id )}
-    return hash.max_by{ |k,v| v }
+    result = {}
+    @merchants.each { |m| result[ m.name ] = merchant_total( m.id ) }
+    return result.max_by{ |k, v| v }
   end
 
   def top_tag
-    hash = {}
-    @tags.each { |t|  hash[ t.name ] = tag_total( t.id )}
-    return hash.max_by{ |k,v| v }
+    result = {}
+    @tags.each { |t|  result[ t.name ] = tag_total( t.id ) }
+    return result.max_by{ |k, v| v }
   end  
 
   def display_as_json
