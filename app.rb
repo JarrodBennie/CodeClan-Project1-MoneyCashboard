@@ -8,5 +8,7 @@ require_relative "controllers/merchants"
 require_relative "controllers/tags"
 
 get "/" do
+  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  @account = Account.new( options )
   erb :home
 end
