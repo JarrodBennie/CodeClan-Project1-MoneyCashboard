@@ -29,6 +29,18 @@ class Account
     return sprintf "%.2f", result
   end
 
+  def merchant_number( merchant_id )
+    result = []
+    @transactions.each { |t| if t.merchant_id == merchant_id then result << t.id end }
+    return result.size
+  end
+
+    def tag_number( tag_id )
+    result = []
+    @transactions.each { |t| if t.tag_id == tag_id then result << t.id end }
+    return result.size
+  end
+
   def top_merchant
     result = {}
     @merchants.each { |m| result[ m.name ] = merchant_total( m.id ) }
