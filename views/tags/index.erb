@@ -6,6 +6,7 @@
 <div class="content-bottom">
   <% @account.tags.each do |tag| %>
   <h2><%= tag.name %> </h2>
+  <p><b>Total Transactions</b>: <%= @account.tag_number( tag.id ) %>
   <p><b>Total expenditure</b>: £<%= @account.tag_total( tag.id ) %></p>
   <a href="/tags/<%= tag.id %>">View Transactions</a> 
   <a href="/tags/<%= tag.id %>/edit">Edit Tag</a>
