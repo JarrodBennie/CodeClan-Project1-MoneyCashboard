@@ -6,6 +6,7 @@
 <div class="content-bottom">
   <% @account.merchants.each do |merchant| %>
     <h2><%= merchant.name %></h2>
+    <p><b>Total Transactions</b>: <%= @account.merchant_number( merchant.id ) %></p>
     <p><b>Total Expenditure</b>: £<%= @account.merchant_total( merchant.id ) %></p>
     <a href="/merchants/<%= merchant.id %>">View Transactions</a> 
     <a href="/merchants/<%= merchant.id %>/edit">Edit Merchant</a>
