@@ -35,11 +35,11 @@ class Account
     return result.size
   end
 
-    def tag_number( tag_id )
-      result = []
-      @transactions.each { |t| if t.tag_id == tag_id then result << t.id end }
-      return result.size
-    end
+  def tag_number( tag_id )
+    result = []
+    @transactions.each { |t| if t.tag_id == tag_id then result << t.id end }
+    return result.size
+  end
 
   def top_merchant
     result = {}
