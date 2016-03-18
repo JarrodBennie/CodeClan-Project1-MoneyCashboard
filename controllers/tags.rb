@@ -3,7 +3,11 @@ require "sinatra/contrib/all"
 require_relative "../models/account"
 
 get "/tags" do
-  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  if params[ :search ]
+    options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.search( params[ :search ])} 
+  else
+    options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  end
   @account = Account.new( options )
   erb :"/tags/index"
 end

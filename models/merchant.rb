@@ -9,9 +9,17 @@ class Merchant
   end
 
   def self.find( id )
-   sql = "SELECT * FROM Merchants WHERE id = #{ id.to_i }"
-   result = SqlRunner.execute( sql )
-   return Merchant.new( result[ 0 ] )
+   query = "SELECT * FROM Merchants WHERE id = #{ id.to_i }"
+   result = SqlRunner.execute( query )
+   return Merchant.new( result[ 0 ])
+  end
+
+  def self.search( name )
+    query = "SELECT * FROM Merchants
+    WHERE name
+    LIKE '%#{ name }%'"
+    merchants = SqlRunner.execute( query )
+      return merchants.map { |m| Merchant.new( m )}
   end
 
   def self.all
@@ -35,10 +43,6 @@ class Merchant
   def self.last_entry
     query = "SELECT * FROM Merchants ORDER BY id DESC limit 1;"
     return SqlRunner.execute( query )[ 0 ]
-  end
-
-  def self.destroy( id )
-    SqlRunner.execute( "DELETE FROM Merchants WHERE id = #{ id }" )
   end
 
   def self.delete_all 

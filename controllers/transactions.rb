@@ -15,7 +15,7 @@ get "/transactions/new" do
 end
 
 get "/transactions/:id" do
-  @transaction = Transaction.find( params[ :id ] )
+  @transaction = Transaction.find( params[ :id ])
   erb :"/transactions/show"
 end
 
@@ -38,6 +38,6 @@ post "/transactions/:id" do
 end
 
 post "/transactions/:id/delete" do
-  Transaction.destroy( params[ :id ] )
+  Transaction.destroy( params[ :id ])
   redirect to "/transactions"
 end

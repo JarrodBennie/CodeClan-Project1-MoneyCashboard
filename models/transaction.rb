@@ -1,3 +1,4 @@
+
 require_relative "../db/sql_runner"
 class Transaction
   attr_reader :id, :merchant_id, :tag_id, :amount, :transaction_date
@@ -12,7 +13,7 @@ class Transaction
 
   def date_format
     date = @transaction_date.to_s.split("-")
-    return "#{ date[ 2 ] }/#{ date[ 1 ] }/#{ date[ 0 ] }"
+    return "#{ date[ 2 ]}/#{ date[ 1 ]}/#{ date[ 0 ]}"
   end
 
   def amount_format
@@ -22,13 +23,13 @@ class Transaction
   def self.find( id )
    query = "SELECT * FROM Transactions WHERE id = #{ id.to_i }"
    result = SqlRunner.execute( query )
-   return Transaction.new( result[ 0 ] )
+   return Transaction.new( result[ 0 ])
   end
 
   def self.select_by_month( month )
     query = "SELECT * FROM Transactions WHERE transaction_date "
     result = SqlRunner.execute( query )
-    return transactions.map { |t| Transaction.new( t ) }
+    return transactions.map { |t| Transaction.new( t )}
   end
 
   def self.all

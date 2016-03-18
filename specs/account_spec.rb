@@ -54,10 +54,18 @@ class TestAccount < MiniTest::Test
   end
 
   def test_top_merchant
-    assert_equal([ "Tesco", "100.00" ], @account.top_merchant )
+    assert_equal([ "Tesco", 100.0 ], @account.top_merchant )
+  end
+
+  def test_top_merchant_format
+    assert_equal( "100.00", @account.top_merchant_format )
   end
 
   def test_top_tag
-    assert_equal([ "Groceries", "100.00" ], @account.top_tag )
+    assert_equal([ "Groceries", 100.0 ], @account.top_tag )
+  end
+
+  def test_top_tag_format
+    assert_equal( "100.00", @account.top_tag_format )
   end
 end

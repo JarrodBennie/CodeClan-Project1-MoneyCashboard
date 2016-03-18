@@ -4,12 +4,12 @@ DROP TABLE Tags;
 
 CREATE TABLE Merchants (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR( 255 )
 );
 
 CREATE TABLE Tags (
   id SERIAL8 PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR( 255 )
 );
 
 CREATE TABLE Transactions (

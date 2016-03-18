@@ -11,7 +11,15 @@ class Tag
   def self.find( id )
    sql = "SELECT * FROM Tags WHERE id = #{ id.to_i }"
    result = SqlRunner.execute( sql )
-   return Tag.new( result[ 0 ] )
+   return Tag.new( result[ 0 ])
+  end
+
+  def self.search( name )
+    query = "SELECT * FROM Tags
+    WHERE name
+    LIKE '%#{ name }'"
+    tags = SqlRunner.execute( query )
+    return tags.map { |t| Tag.new( t )}
   end
 
   def self.all
@@ -35,10 +43,6 @@ class Tag
   def self.last_entry
     query = "SELECT * FROM Tags ORDER BY id DESC limit 1;"
     return SqlRunner.execute( query )[ 0 ]
-  end
-
-  def self.destroy( id )
-    SqlRunner.execute( "DELETE FROM Tags WHERE id = #{ id }" )
   end
 
   def self.delete_all 

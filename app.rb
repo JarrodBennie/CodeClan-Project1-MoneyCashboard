@@ -12,3 +12,8 @@ get "/" do
   @account = Account.new( options )
   erb :home
 end
+
+not_found do
+  status 404
+  erb :"errors/404"
+end

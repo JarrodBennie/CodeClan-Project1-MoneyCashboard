@@ -9,6 +9,9 @@ header {
   position: fixed;
   margin: auto;
   opacity: 0.95;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-color: #fff;
 }
 
 footer {
@@ -26,11 +29,14 @@ footer {
   opacity: 0.95;
   font-family: "Raleway", sans-serif;
   font-weight: 100;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #fff;
 }
 
 body {
   font-family: sans-serif;
-  color: #222;
+  color: #444;
   margin: 0;
 }
 
@@ -50,6 +56,9 @@ a {
   background-color: deepskyblue;
   color: #eee;
   border-radius: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #0099cc;
   padding: 5px 10px;
   text-decoration: none;
 }
@@ -58,9 +67,25 @@ a:hover {
   color: #fff;
 }
 
+.nav {
+  border-style: none;
+  border-width: 0;
+}
+
+.logo {
+  color: #fff;
+  border-style: none;
+  border-width: 0;
+}
+
+.float-left {
+  border-style: none;
+}
+
 .float-right {
   float: right;
   margin: 0 10px;
+  border-style: none;
 }
 
 .content {
@@ -115,14 +140,6 @@ a:hover {
   border-color: deepskyblue;
 }
 
-.content-spacer {
-  height: 50px;
-}
-
-.home-links {
-  text-align: center;
-}
-
 .delete {
 float: right;
 display: block;
@@ -133,6 +150,7 @@ border-radius: 5px;
 input[type=submit] {
   background-color: #fff;
   color: deepskyblue;
+  border-width: 1px;
   border-radius: 20px;
   padding: 5px 10px;
   text-decoration: none;
@@ -141,4 +159,12 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: deepskyblue;
   color: #fff;
+}
+
+.content-spacer {
+  height: 50px;
+}
+
+.search {
+  float: right;
 }

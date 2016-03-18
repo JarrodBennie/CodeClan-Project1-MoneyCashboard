@@ -13,9 +13,9 @@
       <p><b>Tag</b>: 
       <% @account.tags.each do |tag| %>
       <% if tag.id == transaction.tag_id %>
-        <%= tag.name %>
+        <%= tag.name %></p>
       <% end %>
-    <% end %></p>
+    <% end %>
 
       <form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
         <input type="submit" value="Delete">

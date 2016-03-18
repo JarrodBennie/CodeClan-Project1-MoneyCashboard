@@ -36,22 +36,30 @@ class Account
   end
 
     def tag_number( tag_id )
-    result = []
-    @transactions.each { |t| if t.tag_id == tag_id then result << t.id end }
-    return result.size
-  end
+      result = []
+      @transactions.each { |t| if t.tag_id == tag_id then result << t.id end }
+      return result.size
+    end
 
   def top_merchant
     result = {}
-    @merchants.each { |m| result[ m.name ] = merchant_total( m.id ) }
+    @merchants.each { |m| result[ m.name ] = merchant_total( m.id ).to_f }
     return result.max_by{ |k, v| v }
+  end
+
+  def top_merchant_format
+    return sprintf "%.2f", top_merchant[ 1 ]
   end
 
   def top_tag
     result = {}
-    @tags.each { |t|  result[ t.name ] = tag_total( t.id ) }
+    @tags.each { |t|  result[ t.name ] = tag_total( t.id ).to_f }
     return result.max_by{ |k, v| v }
-  end  
+  end
+
+  def top_tag_format
+    return sprintf "%.2f", top_tag[ 1 ]
+  end
 
   def display_as_json
     result = {}

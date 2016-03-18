@@ -1,14 +1,11 @@
 <div class="content">
-<!-- <p><b>Lifetime Expenditure</b>: <%= @account.total %></p>
-<p><b>Top Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
-<p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: <%= @account.top_merchant[ 1 ] %></p>
-<p><b>Top Tag</b>: <%= @account.top_tag[ 0 ] %></p>
-<p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: <%= @account.top_tag[ 1 ] %></p> -->
+<h2>User Statistics</h2>
+<p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
+<p><b>Lifetime Expenditure</b>: £<%= @account.total %></p><br>
 
-  <div class="home-links">
-    <a href="/transactions">Transactions</a>
-    <a href="/merchants">Merchants</a>
-    <a href="/tags">Tags</a>
-    <a href="/api/transactions">API</a>
-    </div>
+<p><b>Highest Grossing Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
+<p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p><br>
+
+<p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
+<p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %></p>
 </div>

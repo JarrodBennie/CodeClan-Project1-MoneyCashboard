@@ -1,40 +1,38 @@
 <div class="content">
+  <h2>Edit Transaction</h2>
 
-<h2>Edit Transaction</h2>
+  <form action="/transactions/<%= @transaction.id %>" method="post">
+    <label for="amount">Amount:</label>
+      <input type="text" name="amount" id="amount" value="<%= @transaction.amount_format %>"><br><br>
 
-<form action="/transactions/<%= @transaction.id %>" method="post">
-  <label for="amount">Amount:</label>
-    <input type="text" name="amount" id="amount" value="<%= @transaction.amount_format %>"><br><br>
+    <label for="transaction_date">Date:</label>
+      <input type="date" name="transaction_date" id="transaction_date" value="<%= @transaction.transaction_date %>"><br><br>
 
-  <label for="transaction_date">Date:</label>
-    <input type="date" name="transaction_date" id="transaction_date" value="<%= @transaction.transaction_date %>"><br><br>
+    <label for="merchant">Merchant:</label>
+    <select id="merchant_id" name="merchant_id">
+        <% @account.merchants.each do |merchant| %>
+          <option value="<%= merchant.id %>"
+            <% if merchant.id == @transaction.merchant_id %>
+              selected ="true"
+            <% end %>>
+          <%= merchant.name %>
+          </option>
+        <% end %>
+    </select><br><br>
 
-  <label for="merchant">Merchant:</label>
-  <select id="merchant_id" name="merchant_id">
-      <% @account.merchants.each do |merchant| %>
-        <option value="<%= merchant.id %>"
-          <% if merchant.id == @transaction.merchant_id %>
-            selected ="true"
-          <% end %>>
-        <%= merchant.name %>
-        </option>
-      <% end %>
-  </select><br><br>
+    <label for="tag">Tag:</label>
+    <select id="tag_id" name="tag_id">
+        <% @account.tags.each do |tag| %>
+          <option value="<%= tag.id %>"
+            <% if tag.id == @transaction.tag_id %>
+            selected="true"
+            <% end %>>
+            <%= tag.name %>
+          </option>
+        <% end %>
+    </select><br><br>
 
-  <label for="tag">Tag:</label>
-  <select id="tag_id" name="tag_id">
-      <% @account.tags.each do |tag| %>
-        <option value="<%= tag.id %>"
-          <% if tag.id == @transaction.tag_id %>
-          selected="true"
-          <% end %>>
-          <%= tag.name %>
-        </option>
-      <% end %>
-  </select><br><br>
-
-  <input type="submit" value="Submit">
-  <a href="/transactions">Cancel</a>
-</form>
-
+    <input type="submit" value="Submit">
+    <a href="/transactions">Cancel</a>
+  </form>
 </div>
