@@ -19,7 +19,7 @@ class Merchant
     WHERE name
     LIKE '%#{ name }%'"
     merchants = SqlRunner.execute( query )
-      return merchants.map { |m| Merchant.new( m )}
+    return merchants.map { |m| Merchant.new( m )}
   end
 
   def self.all
