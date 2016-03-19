@@ -9,6 +9,7 @@ CREATE TABLE Merchants (
 
 CREATE TABLE Tags (
   id SERIAL8 PRIMARY KEY,
+  monthly_budget FLOAT8,
   name VARCHAR( 255 )
 );
 

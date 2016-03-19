@@ -12,13 +12,12 @@ merchant5 = Merchant.create( "name" => "Boots" )
 merchant6 = Merchant.create( "name" => "CodeClan" )
 merchant7 = Merchant.create( "name" => "Waitrose" )
 
-tag1 = Tag.create( "name" => "Groceries" )
-tag2 = Tag.create( "name" => "Utilities" )
-tag3 = Tag.create( "name" => "Travel" )
-tag4 = Tag.create( "name" => "Hospitality" )
-tag5 = Tag.create( "name" => "Medical" )
-tag6 = Tag.create( "name" => "Education" )
-tag7 = Tag.create( "name" => "Business" )
+tag1 = Tag.create( "name" => "Groceries", "monthly_budget" => 250.00 )
+tag2 = Tag.create( "name" => "Utilities", "monthly_budget" => 750.00 )
+tag3 = Tag.create( "name" => "Travel", "monthly_budget" => 100.00 )
+tag4 = Tag.create( "name" => "Business", "monthly_budget" => 0.00 )
+tag5 = Tag.create( "name" => "Medical", "monthly_budget" => 25.00 )
+tag6 = Tag.create( "name" => "Education", "monthly_budget" => 1000.00 )
 
 transaction1 = Transaction.create(
   "amount" => 103.27,
