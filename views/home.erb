@@ -4,7 +4,7 @@
   <b>Lifetime Expenditure</b>: £<%= @account.total %>
 </div>
 
-<div class="content-bottom">
+<div class="content-middle">
   <div class="wrapper-right">
     <h2 class="h2-50">This Month</h2>
     <p>Highest Grossing Merchant: <b><%= @account.top_merchant[ 0 ] %></b></p>
@@ -20,4 +20,10 @@
   <p>Highest Grossing Tag: <b><%= @account.top_tag[ 0 ] %></b></p>
   <%= @account.top_tag[ 0 ] %> Expenditure: <b>£<%= @account.top_tag_format %></b>
   </div>
+</div>
+
+<div class="content-bottom">
+  <h2>Your Budget</h2>
+  <p>Total Monthly Budget: <b>£1000</b></p>
+  Remaining This Month: <b>£0</b>
 </div>
