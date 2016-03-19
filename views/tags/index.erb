@@ -15,7 +15,7 @@
 
     <p><b>Expenditure This Month</b>: £<%= @account.tag_total( tag.id ) %></p>
     <p><b>Remaining This Month</b>: £<%= @account.tag_progress( tag.id ) %></p>
-    <a href="/tags/<%= tag.id %>">View Transactions</a>
+    <a href="/tags/<%= tag.id %>">View All Transactions</a>
 
     <% if not tag == @account.tags.last %>
       <div class="content-spacer"></div>
