@@ -1,5 +1,7 @@
 
 require_relative "../db/sql_runner"
+require "date"
+
 class Transaction
   attr_reader :id, :merchant_id, :tag_id, :amount, :transaction_date
 
@@ -26,9 +28,12 @@ class Transaction
    return Transaction.new( result[ 0 ])
   end
 
-  def self.select_by_month( month )
-    query = "SELECT * FROM Transactions WHERE transaction_date "
-    result = SqlRunner.execute( query )
+  def self.find_this_month
+    query = "SELECT * FROM Transactions
+    WHERE DATE_PART ( 'month', transaction_date )
+    = '#{ Time.now.strftime( "%m" )}'
+    ORDER BY transaction_date DESC"
+    transactions = SqlRunner.execute( query )
     return transactions.map { |t| Transaction.new( t )}
   end
 
