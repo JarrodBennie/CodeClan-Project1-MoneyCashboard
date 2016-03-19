@@ -1,11 +1,24 @@
 <div class="content">
   <h2>Welcome Back!</h2>
-  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
-  <p><b>Lifetime Expenditure</b>: £<%= @account.total %></p><br>
+  <p><b>Lifetime Expenditure</b>: £<%= @account.total %></p>
+</div>
 
+<div class="content-bottom">
+  <div class="wrapper-right">
+    <h2 class="h2-50">This Month</h2>
+    <p><b>Highest Grossing Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
+    <p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p>
+
+    <p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
+    <b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %>
+  </div>
+  
+  <div class="wrapper-left">
+  <h2 class="h2-50">All Time</h2>
   <p><b>Highest Grossing Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
-  <p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p><br>
+  <p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p>
 
   <p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
-  <p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %></p>
+  <b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %>
+  </div>
 </div>

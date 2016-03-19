@@ -196,3 +196,12 @@ input[type=submit]:hover {
 .search {
   float: right;
 }
+
+.wrapper-left {
+  width: 50%;
+}
+
+.wrapper-right {
+  float: right;
+  width: 50%;
+}
