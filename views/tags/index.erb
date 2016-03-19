@@ -13,7 +13,7 @@
     <h2 class="h2-75"><%= tag.name %> </h2>
     <p><b>Total Transactions</b>: <%= @account.tag_number( tag.id ) %>
     <p><b>Total Expenditure</b>: £<%= @account.tag_total( tag.id ) %></p>
-    <p><b>Monthly Budget</b>: £<%= tag.monthly_budget %></p>
+    <p><b>Progress</b>: £<%= @account.tag_progress( tag.id ) %></p>
     <a href="/tags/<%= tag.id %>">View Transactions</a>
 
     <% if not tag == @account.tags.last %>

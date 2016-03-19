@@ -62,7 +62,7 @@ class Account
   end
 
   def tag_progress( tag_id )
-    @tags.each { |t| if t.id == tag_id do return t.monthly_budget - tag_total( t.id ) end }
+    @tags.each { |t| if t.id == tag_id then return t.monthly_budget - tag_total( t.id ) end }
   end
 
   def transactions_as_json
