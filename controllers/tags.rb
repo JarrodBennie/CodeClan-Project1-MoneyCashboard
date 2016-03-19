@@ -4,9 +4,9 @@ require_relative "../models/account"
 
 get "/tags" do
   if params[ :search ]
-    options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.find_where( params[ :search ])} 
+    options = { "transactions" => Transaction.find_this_month, "merchants" => Merchant.all, "tags" => Tag.find_where( params[ :search ])} 
   else
-    options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+    options = { "transactions" => Transaction.find_this_month, "merchants" => Merchant.all, "tags" => Tag.all }
   end
   @account = Account.new( options )
   if @account.tags.size == 0
