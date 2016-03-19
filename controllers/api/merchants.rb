@@ -6,5 +6,5 @@ require_relative "../../models/account"
 post "/api/merchants" do 
   content_type :json
   @merchant = Merchant.create( params )
-  return { response: "Post successful!" }.to_json
+  return Hash[ response: "Post successful!" ].merge(params).to_json
 end
