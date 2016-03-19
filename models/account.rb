@@ -61,6 +61,10 @@ class Account
     return sprintf "%.2f", top_tag[ 1 ]
   end
 
+  def tag_progress( tag_id )
+    @tags.each { |t| if t.id == tag_id do return t.monthly_budget - tag_total( t.id ) end }
+  end
+
   def transactions_as_json
     result = {}
     nested = {}
