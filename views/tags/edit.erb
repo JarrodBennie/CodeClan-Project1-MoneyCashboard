@@ -4,6 +4,9 @@
   <form action="/tags/<%= @tag.id %>" method="post">
     <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= @tag.name %>"><br><br>
+    <label for="monthly_budget">Monthly Budget:</label>
+      <input type="number" name="monthly_budget" id="monthly_budget" step="any" placeholder="0.00"><br><br>
+      
     <input type="submit" value="Submit">
     <a href="/tags">Cancel</a>
   </form>
