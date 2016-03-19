@@ -7,7 +7,7 @@ get "/api/transactions" do
   content_type :json
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  return @account.display_as_json.to_json
+  return @account.transactions_as_json.to_json
 end
 
 post "/api/transactions" do 

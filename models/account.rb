@@ -61,7 +61,7 @@ class Account
     return sprintf "%.2f", top_tag[ 1 ]
   end
 
-  def display_as_json
+  def transactions_as_json
     result = {}
     nested = {}
     counter = 1
@@ -81,4 +81,37 @@ class Account
     return result
   end
 
+  def merchants_as_json
+    result = {}
+    nested = {}
+    counter = 1
+
+    for merchant in @merchants
+      nested[ "id" ] = merchant.id
+      nested[ "name" ] = merchant.name
+
+      result[ "merchant #{ counter }" ] = nested
+
+      counter += 1
+      nested = {}
+    end
+    return result
+  end
+
+  def tags_as_json
+    result = {}
+    nested = {}
+    counter = 1
+
+    for tag in @tags
+      nested[ "id" ] = tag.id
+      nested[ "name" ] = tag.name
+
+      result[ "tag #{ counter }" ] = nested
+
+      counter += 1
+      nested = {}
+    end
+    return result
+  end
 end
