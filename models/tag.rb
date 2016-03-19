@@ -14,7 +14,7 @@ class Tag
    return Tag.new( result[ 0 ])
   end
 
-  def self.search( name )
+  def self.find_where( name )
     query = "SELECT * FROM Tags
     WHERE name
     LIKE '%#{ name }'"

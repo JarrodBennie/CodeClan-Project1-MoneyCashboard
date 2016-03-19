@@ -4,7 +4,7 @@ require_relative "../models/account"
 
 get "/merchants" do
   if params[ :search ]
-    options = { "transactions" => Transaction.all, "merchants" => Merchant.search( params[ :search ]), "tags" => Tag.all } 
+    options = { "transactions" => Transaction.all, "merchants" => Merchant.find_where( params[ :search ]), "tags" => Tag.all } 
   else
     options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   end
