@@ -1,0 +1,10 @@
+<div class="content-top">
+  <h2><%= @merchant.name %></h2>
+  <p><b>Total Transactions</b>: <%= @account.merchant_number( @merchant.id ) %>
+  <p><b>Total by Merchant</b>: £<%= @account.merchant_total( @merchant.id ) %></p>
+</div>
+
+<div class="content-bottom">
+  <h2>Oops!</h2>
+  No results found.
+</div>

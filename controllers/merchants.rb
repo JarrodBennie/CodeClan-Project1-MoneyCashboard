@@ -24,7 +24,11 @@ get "/merchants/:id" do
   @merchant = Merchant.find( params[ :id ])  
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"merchants/show"
+  if @account.transactions.select { |t| t.merchant_id == @merchant.id }.size == 0
+    erb :"merchants/show_empty"
+  else
+    erb :"merchants/show"
+  end
 end
 
 post "/merchants" do
