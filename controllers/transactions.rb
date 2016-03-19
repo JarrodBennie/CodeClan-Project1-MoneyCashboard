@@ -3,7 +3,11 @@ require "sinatra/contrib/all"
 require_relative "../models/account"
 
 get "/transactions" do
-  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  if params[ :filter ] == "month"
+    options = { "transactions" => Transaction.find_this_month, "merchants" => Merchant.all, "tags" => Tag.all }
+  else
+    options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  end
   @account = Account.new( options )
   if @account.transactions.size == 0
     erb :"/transactions/empty"
