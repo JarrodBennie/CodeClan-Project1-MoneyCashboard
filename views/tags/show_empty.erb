@@ -1,0 +1,10 @@
+<div class="content-top">
+  <h2><%= @tag.name %></h2>
+  <p><b>Total Transactions</b>: <%= @account.tag_number( @tag.id ) %>
+  <p><b>Total by Tag</b>: £<%= @account.tag_total( @tag.id ) %></p>
+</div>
+
+<div class="content-bottom">
+  <h2>Oops!</h2>
+  No results found.
+</div>

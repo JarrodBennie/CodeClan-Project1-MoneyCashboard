@@ -24,7 +24,11 @@ get "/tags/:id" do
   @tag = Tag.find( params[ :id ])  
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/tags/show"
+  if @account.transactions.select { |t| t.tag_id == @tag.id }.size == 0
+    erb :"tags/show_empty"
+  else
+    erb :"tags/show"
+  end
 end
 
 post "/tags" do
