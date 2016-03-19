@@ -3,17 +3,17 @@
     <input type="text" name="search" placeholder="Search">
     <input type="submit" value="Submit">
   </form>
-  <h2>Tags</h2>
+  <h2 class="h2-50">Tags</h2>
   <p><a href="/tags/new">Create New</a></p>
 </div>
 
 <div class="content-bottom">
   <% @account.tags.each do |tag| %>
-    <h2><%= tag.name %> </h2>
+    <a class="link-right" href="/tags/<%= tag.id %>/edit">Edit</a>
+    <h2 class="h2-75"><%= tag.name %> </h2>
     <p><b>Total Transactions</b>: <%= @account.tag_number( tag.id ) %>
     <p><b>Total expenditure</b>: £<%= @account.tag_total( tag.id ) %></p>
     <a href="/tags/<%= tag.id %>">View Transactions</a>
-    <a href="/tags/<%= tag.id %>/edit">Edit Tag</a>
 
     <% if not tag == @account.tags.last %>
       <div class="content-spacer"></div>

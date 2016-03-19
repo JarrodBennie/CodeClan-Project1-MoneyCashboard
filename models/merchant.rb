@@ -30,7 +30,6 @@ class Merchant
 
   def self.create( params )
     query = "INSERT INTO Merchants ( name ) VALUES ( '#{ params[ 'name' ]}' )"
-
     SqlRunner.execute( query )
     return Merchant.new( Merchant.last_entry )
   end

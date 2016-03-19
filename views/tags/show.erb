@@ -6,24 +6,24 @@
 
 <div class="content-bottom-nopad">
   <% @account.transactions.each do |transaction| %>
-    <% if transaction.tag_id == @tag.id %>
-      <p><b>Amount</b>: £<%= transaction.amount_format %></p>
-      <p><b>Date</b>: <%= transaction.date_format %></p>
+      <% if transaction.tag_id == @tag.id %>
+        <% @account.merchants.each do |merchant| %>
+          <% if merchant.id == transaction.merchant_id %>
+            
+            <form action="/transactions/<%= transaction.id %>/delete" method="post" class="link-right">
+              <input type="submit" value="Delete">
+            </form>
+            
+            <h2 class="h2-75"><%= merchant.name %></h2>
+          <% end %>
+        <% end %>
 
-      <p><b>Merchant</b>: 
-      <% @account.merchants.each do |merchant| %>
-      <% if merchant.id == transaction.merchant_id %>
-        <%= merchant.name %>
-      <% end %>
-    <% end %></p>
-
-      <form action="/transactions/<%= transaction.id %>/delete" method="post" class="delete">
-        <input type="submit" value="Delete">
-      </form>
+        <p><b>Amount</b>: £<%= transaction.amount_format %></p>
+        <p><b>Date</b>: <%= transaction.date_format %></p>
       
-      <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
+        <a href="/transactions/<%= transaction.id %>/edit">Edit Transaction</a>
 
-      <div class="content-spacer"></div>
+        <div class="content-spacer"></div>
     <% end %>
   <% end %>
 </div>

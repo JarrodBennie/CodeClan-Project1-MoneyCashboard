@@ -15,7 +15,8 @@
             <%= merchant.name %>
           </option>
         <% end %>
-    </select><br><br>
+    </select>
+    <a class="subtle-link" href="/merchants/new">Create New</a><br><br>
 
     <label for="tag">Tag:</label>
     <select id="tag_id" name="tag_id">
@@ -24,7 +25,8 @@
             <%= tag.name %>
           </option>
         <% end %>
-    </select><br><br>
+    </select>
+    <a class="subtle-link" href="/tags/new">Create New</a><br><br>
 
     <input type="submit" value="Submit">
     <a href="/transactions">Cancel</a>

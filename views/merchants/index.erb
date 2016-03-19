@@ -3,17 +3,17 @@
     <input type="text" name="search" placeholder="Search">
     <input type="submit" value="Submit">
   </form>
-  <h2>Merchants</h2>
+  <h2 class="h2-50">Merchants</h2>
   <p><a href="/merchants/new">Create New</a></p>
 </div>
 
 <div class="content-bottom">
   <% @account.merchants.each do |merchant| %>
-    <h2><%= merchant.name %></h2>
+    <a class="link-right" href="/merchants/<%= merchant.id %>/edit">Edit</a>
+    <h2 class="h2-75"><%= merchant.name %></h2>
     <p><b>Total Transactions</b>: <%= @account.merchant_number( merchant.id ) %></p>
     <p><b>Total Expenditure</b>: £<%= @account.merchant_total( merchant.id ) %></p>
-    <a href="/merchants/<%= merchant.id %>">View Transactions</a> 
-    <a href="/merchants/<%= merchant.id %>/edit">Edit Merchant</a>
+    <a href="/merchants/<%= merchant.id %>">View Transactions</a>
 
     <% if not merchant == @account.merchants.last %>
       <div class="content-spacer"></div>

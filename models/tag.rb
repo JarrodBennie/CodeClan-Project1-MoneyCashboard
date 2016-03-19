@@ -30,7 +30,6 @@ class Tag
 
   def self.create( params )
     query = "INSERT INTO Tags ( name ) VALUES ( '#{ params[ 'name' ]}' )"
-
     SqlRunner.execute( query )
     return Tag.new( Tag.last_entry )
   end
