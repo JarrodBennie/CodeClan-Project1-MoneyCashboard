@@ -9,7 +9,11 @@ get "/merchants" do
     options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   end
   @account = Account.new( options )
+  if @account.merchants.size == 0
+    erb :"merchants/empty"
+  else
   erb :"merchants/index"
+  end
 end
 
 get "/merchants/new" do

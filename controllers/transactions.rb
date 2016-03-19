@@ -5,7 +5,11 @@ require_relative "../models/account"
 get "/transactions" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  erb :"/transactions/index"
+  if @account.transactions.size == 0
+    erb :"/transactions/empty"
+  else
+    erb :"/transactions/index"
+  end
 end
 
 get "/transactions/new" do

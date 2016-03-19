@@ -1,0 +1,11 @@
+<div class="content-top">
+  <h2>Transactions</h2>
+  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
+  <p><b>Lifetime Expenditure:</b> £<%= sprintf "%.2f", @account.total %></p>
+  <p><a href="/transactions/new">Create New</a></p>
+</div>
+
+<div class="content-bottom">
+  <h2>No Transactions!</h2>
+  Add some transactions to start saving money.
+</div>
