@@ -62,7 +62,13 @@ class Account
   end
 
   def tag_progress( tag_id )
-    @tags.each { |t| if t.id == tag_id then return t.monthly_budget - tag_total( t.id ) end }
+    result = 0
+    for tag in @tags
+      if tag.id == tag_id 
+        result = tag.monthly_budget - tag_total( tag.id ).to_f 
+      end
+    end
+      return sprintf "%.2f", result
   end
 
   def transactions_as_json
