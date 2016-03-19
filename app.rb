@@ -10,7 +10,7 @@ require_relative "controllers/tags"
 get "/" do
   options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
   @account = Account.new( options )
-  if @account.merchants.size or @account.tags.size == 0
+  if @account.merchants.size == 0 || @account.tags.size == 0
     erb :home_new_user
   elsif 
     @account.transactions.size == 0
