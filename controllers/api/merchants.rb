@@ -3,6 +3,13 @@ require "sinatra/contrib/all"
 require "json"
 require_relative "../../models/account"
 
+get "/api/merchants" do
+  content_type :json
+  options = { "transactions" => Transaction.all, "merchants" => Merchant.all, "tags" => Tag.all }
+  @account = Account.new( options )
+  
+end
+
 post "/api/merchants" do 
   content_type :json
   @merchant = Merchant.create( params )
