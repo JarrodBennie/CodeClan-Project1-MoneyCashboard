@@ -1,11 +1,15 @@
 <div class="content">
-<h2>User Statistics</h2>
-<p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
-<p><b>Lifetime Expenditure</b>: £<%= @account.total %></p><br>
+<% if @account.transactions.size == 0 %>
+  <h2>Welcome to MoneyCashboard!</h2>
+<% else %>
+  <h2>Welcome back!</h2>
+  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
+  <p><b>Lifetime Expenditure</b>: £<%= @account.total %></p><br>
 
-<p><b>Highest Grossing Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
-<p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p><br>
+  <p><b>Highest Grossing Merchant</b>: <%= @account.top_merchant[ 0 ] %></p>
+  <p><b><%= @account.top_merchant[ 0 ] %> Expenditure</b>: £<%= @account.top_merchant_format %></p><br>
 
-<p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
-<p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %></p>
-</div>
+  <p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
+  <p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %></p>
+  </div>
+<% end %>
