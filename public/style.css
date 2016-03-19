@@ -87,6 +87,10 @@ a:hover {
   text-decoration: underline;
 }
 
+.subtle-link:hover {
+  color: #444;
+}
+
 .nav {
   border-style: none;
   border-width: 0;
