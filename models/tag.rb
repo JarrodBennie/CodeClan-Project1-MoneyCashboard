@@ -9,6 +9,10 @@ class Tag
     @monthly_budget = params[ "monthly_budget" ].to_f
   end
 
+  def budget_format
+    return sprintf "%.2f", @monthly_budget
+  end
+
   def self.find( id )
    sql = "SELECT * FROM Tags WHERE id = #{ id.to_i }"
    result = SqlRunner.execute( sql )
