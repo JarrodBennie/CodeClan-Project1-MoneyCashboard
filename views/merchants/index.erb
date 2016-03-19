@@ -11,9 +11,9 @@
   <% @account.merchants.each do |merchant| %>
     <a class="link-right" href="/merchants/<%= merchant.id %>/edit">Edit</a>
     <h2 class="h2-75"><%= merchant.name %></h2>
-    <p><b>Total Transactions</b>: <%= @account.merchant_number( merchant.id ) %></p>
-    <p><b>Total Expenditure</b>: £<%= @account.merchant_total( merchant.id ) %></p>
-    <a href="/merchants/<%= merchant.id %>">View Transactions</a>
+    <p><b>Transactions This Month</b>: <%= @account.merchant_number( merchant.id ) %></p>
+    <p><b>Expenditure This Month</b>: £<%= @account.merchant_total( merchant.id ) %></p>
+    <a href="/merchants/<%= merchant.id %>">View All Transactions</a>
 
     <% if not merchant == @account.merchants.last %>
       <div class="content-spacer"></div>
