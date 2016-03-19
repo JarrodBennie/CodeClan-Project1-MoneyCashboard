@@ -1,7 +1,4 @@
 <div class="content">
-<% if @account.transactions.size == 0 %>
-  <h2>Welcome to MoneyCashboard!</h2>
-<% else %>
   <h2>Welcome back!</h2>
   <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
   <p><b>Lifetime Expenditure</b>: £<%= @account.total %></p><br>
@@ -11,5 +8,4 @@
 
   <p><b>Highest Grossing Tag</b>: <%= @account.top_tag[ 0 ] %></p>
   <p><b><%= @account.top_tag[ 0 ] %> Expenditure</b>: £<%= @account.top_tag_format %></p>
-  </div>
-<% end %>
+</div>
