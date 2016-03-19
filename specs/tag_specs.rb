@@ -4,11 +4,15 @@ require_relative "../models/tag"
 
 class TestTag < MiniTest::Test
   def setup
-    params = { "name" => "Groceries" }
+    params = { "name" => "Groceries", "monthly_budget" => 250.00 }
     @tag = Tag.new( params )
   end
 
   def test_name
     assert_equal( "Groceries", @tag.name ) 
+  end
+
+  def test_monthly_budget
+    assert_equal( 250.00, @tag.monthly_budget )
   end
 end

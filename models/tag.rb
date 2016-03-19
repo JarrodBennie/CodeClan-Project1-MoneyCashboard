@@ -1,11 +1,12 @@
 require_relative "../db/sql_runner"
 
 class Tag
-  attr_reader :id, :name
+  attr_reader :id, :name, :monthly_budget
 
   def initialize( params )
     @id = nil || params[ "id" ].to_i
     @name = params[ "name" ]
+    @monthly_budget = params[ "monthly_budget" ].to_f
   end
 
   def self.find( id )
