@@ -30,7 +30,7 @@ class Transaction
   def self.find_this_month
     query = "SELECT * FROM Transactions
     WHERE DATE_PART ( 'month', transaction_date )
-    = '#{ Time.now.strftime( "%m" )}'
+      = '#{ Time.now.strftime( "%m" )}'
     ORDER BY transaction_date DESC"
     transactions = SqlRunner.execute( query )
     return transactions.map { |t| Transaction.new( t )}
