@@ -1,29 +1,29 @@
 <div class="content-top">
   <h2>Welcome Back!</h2>
-  <p><b>Total Monthly Budget</b>: £<%= @account.budget_total %></p>
-  <b>Remaining This Month</b>: £<%= @account.budget_remaining %>
+  <p><b>Total Monthly Budget</b>: £<%= @account_month.budget_total %></p>
+  <b>Remaining This Month</b>: £<%= @account_month.budget_remaining %>
 </div>
 
 <div class="content-middle">
   <div class="wrapper-right">
     <h2 class="h2-50">This Month</h2>
-    <p>Highest Grossing Merchant: <b><%= @account.top_merchant[ 0 ] %></b></p>
-    <p><%= @account.top_merchant[ 0 ] %> Expenditure: <b>£<%= @account.top_merchant_format %></b></p>
-    <p>Highest Grossing Tag: <b><%= @account.top_tag[ 0 ] %></b></p>
-    <%= @account.top_tag[ 0 ] %> Expenditure: <b>£<%= @account.top_tag_format %></b>
+    <p>Highest Grossing Merchant: <b><%= @account_month.top_merchant[ 0 ] %></b></p>
+    <p><%= @account_month.top_merchant[ 0 ] %> Expenditure: <b>£<%= @account_month.top_merchant_format %></b></p>
+    <p>Highest Grossing Tag: <b><%= @account_month.top_tag[ 0 ] %></b></p>
+    <%= @account_month.top_tag[ 0 ] %> Expenditure: <b>£<%= @account_month.top_tag_format %></b>
   </div>
   
   <div class="wrapper-left">
   <h2 class="h2-50">All Time</h2>
-  <p>Highest Grossing Merchant: <b><%= @account.top_merchant[ 0 ] %></b></p>
-  <p><%= @account.top_merchant[ 0 ] %> Expenditure: <b>£<%= @account.top_merchant_format %></b></p>
-  <p>Highest Grossing Tag: <b><%= @account.top_tag[ 0 ] %></b></p>
-  <%= @account.top_tag[ 0 ] %> Expenditure: <b>£<%= @account.top_tag_format %></b>
+  <p>Highest Grossing Merchant: <b><%= @account_life.top_merchant[ 0 ] %></b></p>
+  <p><%= @account_life.top_merchant[ 0 ] %> Expenditure: <b>£<%= @account_life.top_merchant_format %></b></p>
+  <p>Highest Grossing Tag: <b><%= @account_life.top_tag[ 0 ] %></b></p>
+  <%= @account_life.top_tag[ 0 ] %> Expenditure: <b>£<%= @account_life.top_tag_format %></b>
   </div>
 </div>
 
 <div class="content-bottom">
   <h2>Lifetime Statistics</h2>
-  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
-  <b>Lifetime Expenditure</b>: £<%= @account.total %>
+  <p><b>Total Transactions</b>: <%= @account_life.transactions.size %></p>
+  <b>Lifetime Expenditure</b>: £<%= @account_life.total %>
 </div>
