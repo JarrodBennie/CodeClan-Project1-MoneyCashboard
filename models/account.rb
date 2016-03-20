@@ -74,7 +74,13 @@ class Account
   def budget_total
     result = 0
     @tags.each { |t| result += t.monthly_budget }
-    return result
+    return sprintf "%.2f", result
+  end
+
+  def budget_remaining
+    result = 0
+    Transaction.find_this_month.each { |t| result += t.amount }
+    return sprintf "%.2f", result
   end
 
   def transactions_as_json
