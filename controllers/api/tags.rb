@@ -13,5 +13,5 @@ end
 post "/api/tags" do 
   content_type :json
   @tag = Tag.create( params )
-  return Hash[ response: "Post successful!" ].merge(params).to_json
+  return Hash[ response: "Post successful!" ].merge( params ).to_json
 end

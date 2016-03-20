@@ -15,7 +15,7 @@
 
 <div class="content-bottom">
   <% @account.transactions.each do |transaction| %>
-      <form action="/transactions/<%= transaction.id %>/delete" method="post" class="link-right">
+    <form action="/transactions/<%= transaction.id %>/delete" method="post" class="link-right">
       <input type="submit" value="Delete">
     </form>
     <h2 class="h2-75"><% @account.merchants.each do |merchant| %>

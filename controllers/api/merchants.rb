@@ -13,5 +13,5 @@ end
 post "/api/merchants" do 
   content_type :json
   @merchant = Merchant.create( params )
-  return Hash[ response: "Post successful!" ].merge(params).to_json
+  return Hash[ response: "Post successful!" ].merge( params ).to_json
 end

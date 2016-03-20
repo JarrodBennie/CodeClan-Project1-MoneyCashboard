@@ -13,5 +13,5 @@ end
 post "/api/transactions" do 
   content_type :json
   @transaction = Transaction.create( params )
-  return Hash[ response: "Post successful!" ].merge(params).to_json
+  return Hash[ response: "Post successful!" ].merge( params ).to_json
 end

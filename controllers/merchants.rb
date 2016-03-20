@@ -12,7 +12,7 @@ get "/merchants" do
   if @account.merchants.size == 0
     erb :"merchants/empty"
   else
-  erb :"merchants/index"
+    erb :"merchants/index"
   end
 end
 
