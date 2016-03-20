@@ -24,7 +24,11 @@ class Account
   end
 
   def merchant_average(  merchant_id )
-    return sprintf "%.2f", merchant_total( merchant_id ).to_f / merchant_number( merchant_id )
+    if merchant_total( merchant_id ).to_f > 0
+      return sprintf "%.2f", merchant_total( merchant_id ).to_f / merchant_number( merchant_id )
+    else
+      return "0.00"
+    end
   end
 
   def tag_total( tag_id )
@@ -34,7 +38,11 @@ class Account
   end
 
   def tag_average(  tag_id )
-    return sprintf "%.2f", tag_total( tag_id ).to_f / tag_number( tag_id )
+    if tag_total( tag_id ).to_f > 0
+      return sprintf "%.2f", tag_total( tag_id ).to_f / tag_number( tag_id )
+    else
+      return "0.00"
+    end
   end
 
   def merchant_number( merchant_id )
