@@ -1,7 +1,7 @@
 <div class="content-top">
   <h2>Welcome Back!</h2>
-  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
-  <b>Lifetime Expenditure</b>: £<%= @account.total %>
+  <p><b>Total Monthly Budget</b>: £<%= @account.budget_total %></p>
+  <b>Remaining This Month</b>: £<%= @account.budget_remaining %>
 </div>
 
 <div class="content-middle">
@@ -23,7 +23,7 @@
 </div>
 
 <div class="content-bottom">
-  <h2>Your Budget</h2>
-  <p><b>Total Monthly Budget</b>: £<%= @account.budget_total %></p>
-  <b>Remaining This Month</b>: £0
+  <h2>Lifetime Statistics</h2>
+  <p><b>Total Transactions</b>: <%= @account.transactions.size %></p>
+  <b>Lifetime Expenditure</b>: £<%= @account.total %>
 </div>
