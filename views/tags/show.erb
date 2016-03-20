@@ -2,7 +2,8 @@
   <a class="link-right" href="/tags/<%= @tag.id %>/edit">Edit</a>
   <h2 class="h2-75"><%= @tag.name %></h2>
   <p><b>Total Transactions</b>: <%= @account.tag_number( @tag.id ) %></p>
-  <b>Total by Tag</b>: £<%= @account.tag_total( @tag.id ) %>
+  <p><b>Total by Tag</b>: £<%= @account.tag_total( @tag.id ) %></p>
+  <b>Average Transaction</b>: £<%= @account.tag_average( @tag.id ) %>
 </div>
 
 <div class="content-bottom-nopad">

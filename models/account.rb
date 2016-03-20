@@ -23,10 +23,18 @@ class Account
     return sprintf "%.2f", result
   end
 
+  def merchant_average(  merchant_id )
+    return sprintf "%.2f", merchant_total( merchant_id ).to_f / merchant_number( merchant_id )
+  end
+
   def tag_total( tag_id )
     result = 0
     @transactions.each { |t| if t.tag_id == tag_id then result += t.amount end }
     return sprintf "%.2f", result
+  end
+
+  def tag_average(  tag_id )
+    return sprintf "%.2f", tag_total( tag_id ).to_f / tag_number( tag_id )
   end
 
   def merchant_number( merchant_id )
