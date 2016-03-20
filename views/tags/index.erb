@@ -11,10 +11,9 @@
   <% @account.tags.each do |tag| %>
     <a class="link-right" href="/tags/<%= tag.id %>/edit">Edit</a>
     <h2 class="h2-75"><%= tag.name %></h2>
-    <p><b>Monthly Budget</b>: £<%= tag.budget_format %></p><br>
-
-    <p><b>Expenditure This Month</b>: £<%= @account.tag_total( tag.id ) %></p>
-    <p><b>Remaining This Month</b>: £<%= @account.tag_progress( tag.id ) %></p>
+    <p>Monthly Budget: <b>£<%= tag.budget_format %></b></p>
+    <p>Expenditure This Month: <b>£<%= @account.tag_total( tag.id ) %></b></p>
+    <p>Remaining This Month: <b>£<%= @account.tag_progress( tag.id ) %></b></p>
     <a href="/tags/<%= tag.id %>">View All Transactions</a>
 
     <% if not tag == @account.tags.last %>

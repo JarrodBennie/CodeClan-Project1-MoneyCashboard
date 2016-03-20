@@ -37,7 +37,7 @@ class Tag
     query = "INSERT INTO Tags (
     name, monthly_budget
     ) VALUES (
-      '#{ params[ 'name' ]}',
+      '#{ params[ "name" ]}',
       #{ params[ "monthly_budget" ]}
     )"
     SqlRunner.execute( query )
