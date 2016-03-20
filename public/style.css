@@ -96,12 +96,14 @@ a:hover {
 }
 
 .nav {
+  background-color: transparent;
   border-style: none;
   border-width: 0;
 }
 
 .logo {
   color: #fff;
+  background-color: transparent;
   border-style: none;
   border-width: 0;
 }

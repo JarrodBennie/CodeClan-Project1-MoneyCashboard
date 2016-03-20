@@ -7,11 +7,12 @@ class TestAccount < MiniTest::Test
     merchant = Merchant.new( "id" => 1,"name" => "Tesco" )
     merchants = [ merchant ]
 
-    tag = Tag.new( "id" => 1, "name" => "Groceries" )
+    tag = Tag.new( "id" => 1, "name" => "Groceries", "monthly_budget" => 250.00 )
     tags = [ tag ]
 
-    transaction = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 100, "transaction_date" => "2016-03-11" )
-    transactions = [ transaction ]
+    transaction1 = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 100, "transaction_date" => "2016-03-11" )
+    transaction2 = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 50, "transaction_date" => "2016-03-10" )
+    transactions = [ transaction1, transaction2  ]
 
     params = { "transactions" => transactions, "merchants" => merchants, "tags" => tags }
     @account = Account.new( params )
@@ -34,38 +35,50 @@ class TestAccount < MiniTest::Test
   end
 
   def test_total
-    assert_equal(( sprintf "%0.2f", 100.00 ), @account.total )
+    assert_equal(( sprintf "%0.2f", 150.00 ), @account.total )
   end
 
   def test_merchant_total
-    assert_equal(( sprintf "%0.2f", 100.00 ), @account.merchant_total( 1 ))
+    assert_equal(( sprintf "%0.2f", 150.00 ), @account.merchant_total( 1 ))
+  end
+
+  def test_merchant_average
+    assert_equal( "75.00", @account.merchant_average( 1 ))
   end
 
   def test_tag_total
-    assert_equal(( sprintf "%0.2f", 100.00 ), @account.tag_total( 1 ))
+    assert_equal( "150.00", @account.tag_total( 1 ))
+  end
+
+  def test_tag_average
+    assert_equal( "75.00", @account.tag_average( 1 ))
   end
 
   def test_merchant_number
-    assert_equal( 1, @account.merchant_number( 1 ))
+    assert_equal( 2, @account.merchant_number( 1 ))
   end
 
   def test_tag_number
-    assert_equal( 1, @account.tag_number( 1 ))
+    assert_equal( 2, @account.tag_number( 1 ))
   end
 
   def test_top_merchant
-    assert_equal([ "Tesco", 100.0 ], @account.top_merchant )
+    assert_equal([ "Tesco", 150.0 ], @account.top_merchant )
   end
 
   def test_top_merchant_format
-    assert_equal( "100.00", @account.top_merchant_format )
+    assert_equal( "150.00", @account.top_merchant_format )
   end
 
   def test_top_tag
-    assert_equal([ "Groceries", 100.0 ], @account.top_tag )
+    assert_equal([ "Groceries", 150.0 ], @account.top_tag )
   end
 
   def test_top_tag_format
-    assert_equal( "100.00", @account.top_tag_format )
+    assert_equal( "150.00", @account.top_tag_format )
+  end
+
+  def test_budget_total
+    assert_equal( "250.00", @account.budget_total )
   end
 end
