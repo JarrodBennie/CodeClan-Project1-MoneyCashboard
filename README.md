@@ -31,7 +31,7 @@ In creating this web app my intention was to consolidate as much of the informat
 While planning the project I decided that to achieve a professional feel it was important to, where possible, safeguard the user from the possibility of encountering errors.  For example, rather than allow the user to encounter a "foreign key violation" when attempting to remove a merchant or tag that is currently being used by a transaction, I opted to only allow the user to create or update entries to these tables. I also added guidance for first time users and "no results found" search feedback to the same end.  
   
 ## Outcome  
-Overall I'm very pleased with the result of this project. I feel that I achieved my goals and created a simple but slick looking web application with enough functionality to genuinely benefit the user.  
+Overall I'm very pleased with the result of this project. I feel that I achieved my goals and created a simple but slick looking web application with enough functionality to genuinely benefit the user and help them to achieve their budgeting objectives.  
   
 ## Moving Forward
 This repository will remain unmodified as to preserve the memory of CodeClan - Cohort 3, week 5, however I may create an updated version at some point in the future. Should I resume work on the project, I would like to add the following functionality:  
