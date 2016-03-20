@@ -10,8 +10,18 @@ class TestAccount < MiniTest::Test
     tag = Tag.new( "id" => 1, "name" => "Groceries", "monthly_budget" => 250.00 )
     tags = [ tag ]
 
-    transaction1 = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 100, "transaction_date" => "2016-03-11" )
-    transaction2 = Transaction.new( "merchant_id" => 1, "tag_id" => 1, "amount" => 50, "transaction_date" => "2016-03-10" )
+    transaction1 = Transaction.new(
+      "merchant_id" => 1,
+      "tag_id" => 1,
+      "amount" => 100,
+      "transaction_date" => "2016-03-11"
+      )
+    transaction2 = Transaction.new(
+      "merchant_id" => 1,
+      "tag_id" => 1,
+      "amount" => 50,
+      "transaction_date" => "2016-03-10"
+      )
     transactions = [ transaction1, transaction2  ]
 
     params = { "transactions" => transactions, "merchants" => merchants, "tags" => tags }
