@@ -96,9 +96,30 @@ transaction11 = Transaction.create(
   "tag_id" => tag1.id
 )
 
-transaction11 = Transaction.create(
+transaction12 = Transaction.create(
   "amount" => 4.28,
   "transaction_date" => "17-March-16",
   "merchant_id" => merchant8.id,
   "tag_id" => tag1.id
+)
+
+transaction13 = Transaction.create(
+  "amount" => 22.50,
+  "transaction_date" => "19-March-16",
+  "merchant_id" => merchant5.id,
+  "tag_id" => tag4.id
+)
+
+transaction14 = Transaction.create(
+  "amount" => 22.50,
+  "transaction_date" => "4-March-16",
+  "merchant_id" => merchant5.id,
+  "tag_id" => tag4.id
+)
+
+transaction15 = Transaction.create(
+  "amount" => 22.50,
+  "transaction_date" => "12-February-16",
+  "merchant_id" => merchant5.id,
+  "tag_id" => tag4.id
 )
