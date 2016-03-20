@@ -18,7 +18,7 @@ class Transaction
   end
 
   def amount_format
-      return sprintf "%.2f", @amount
+    return sprintf "%.2f", @amount
   end
 
   def self.find( id )
