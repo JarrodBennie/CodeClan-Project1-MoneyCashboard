@@ -21,7 +21,7 @@ Suggested MVP:
 * Display total expenditure
 * Display total expenditure by tag
 
-Suggested further tasks:
+Suggested additional functionality:
 * CRUD actions for transations
 * Create a route that sends down Account data as JSON
   
@@ -32,7 +32,8 @@ While planning the project I decided that to achieve a professional feel it was 
   
 ## Outcome  
 Overall I'm very pleased with the result of this project. I feel that I achieved my goals and created a simple but slick looking web application with enough functionality to genuinely benefit the user and help them to achieve their budgeting objectives.  
-  
+MoneyCashboard has all of the functionality specified in the brief, as well as multiple other features including chronological data analysis based on comparison between database content and Ruby's date class and routes allowing the user to post data as JSON.
+
 ## Moving Forward
 This repository will remain unmodified as to preserve the memory of my first project at CodeClan, however I may create an updated version at some point in the future. Should I resume work on the project, I would like to add the following functionality:  
 * Further chronological transaction analysis - previous 7 days, previous month, etc.
