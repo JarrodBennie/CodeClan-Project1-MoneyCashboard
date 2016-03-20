@@ -71,6 +71,12 @@ class Account
       return sprintf "%.2f", result
   end
 
+  def budget_total
+    result = 0
+    @tags.each { |t| result += t.monthly_budget }
+    return result
+  end
+
   def transactions_as_json
     result = {}
     nested = {}
