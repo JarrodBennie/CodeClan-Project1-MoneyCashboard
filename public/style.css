@@ -40,6 +40,10 @@ body {
   margin: 0;
 }
 
+b {
+  color: #555;
+}
+
 h1 {
   margin: 0 10px;
   font-family: "Raleway", sans-serif;
