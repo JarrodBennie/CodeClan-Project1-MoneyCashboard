@@ -16,8 +16,8 @@ class Merchant
 
   def self.find_where( name )
     query = "SELECT * FROM Merchants
-    WHERE name
-    LIKE '%#{ name }%'"
+    WHERE LOWER(name)
+    LIKE '%#{ name.downcase }%'"
     merchants = SqlRunner.execute( query )
     return merchants.map { |m| Merchant.new( m )}
   end

@@ -21,8 +21,8 @@ class Tag
 
   def self.find_where( name )
     query = "SELECT * FROM Tags
-    WHERE name
-    LIKE '%#{ name }'"
+    WHERE LOWER(name)
+    LIKE '%#{ name.downcase }'"
     tags = SqlRunner.execute( query )
     return tags.map { |t| Tag.new( t )}
   end
